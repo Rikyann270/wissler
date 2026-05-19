@@ -8,7 +8,7 @@ export function Footer() {
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/20 to-transparent pointer-events-none z-0"></div>
 
       <div className="container mx-auto px-4 md:px-8 max-w-[1280px] relative z-10">
-        
+
         {/* Top Section: Title & CTA */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-16 md:mb-24 gap-8">
           <h2 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tight">
@@ -19,7 +19,7 @@ export function Footer() {
               <div className="bg-accent text-black font-bold uppercase tracking-[2px] text-xs px-8 py-5 flex items-center justify-center transition-colors duration-300">
                 Quick Quote
               </div>
-              <div className="bg-[#b39540] text-black px-5 flex items-center justify-center transition-colors duration-300">
+              <div className="bg-[#f68132] text-black px-5 flex items-center justify-center transition-colors duration-300">
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
@@ -30,7 +30,7 @@ export function Footer() {
         <div className="mb-16 md:mb-24 w-full flex justify-center items-center overflow-hidden">
           <span className="text-[100px] sm:text-[140px] md:text-[200px] lg:text-[250px] font-bold tracking-tighter leading-none text-white w-full text-center flex flex-col md:flex-row items-center justify-center gap-0 md:gap-8 select-none">
             <span className="text-accent tracking-tighter leading-none text-[120px] sm:text-[160px] md:text-[220px] lg:text-[280px]">///</span>
-            <span className="lowercase">wissler</span>
+            <span className="lowercase text-[#f68132]">wissler</span>
           </span>
         </div>
 
@@ -41,12 +41,12 @@ export function Footer() {
               World class global reach with unparalleled reliability, engineered for modern supply chains.
             </p>
           </div>
-          
+
           <div className="col-span-1">
             <h4 className="text-[10px] text-white/50 uppercase tracking-[2px] font-bold mb-4">Contact Us</h4>
             <div className="text-white/80 text-sm space-y-4">
               <p className="text-white/60">
-                123 Logistics Way<br/>
+                123 Logistics Way<br />
                 London, UK E1 4FZ
               </p>
               <p>
@@ -59,20 +59,20 @@ export function Footer() {
 
           <div className="col-span-1 flex items-start">
             <div className="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-center p-4 shadow-xl backdrop-blur-sm grayscale hover:grayscale-0 transition-all">
-              <span className="text-[10px] text-white/50 uppercase tracking-[2px] font-bold">AEO<br/>Certified</span>
+              <span className="text-[10px] text-white/50 uppercase tracking-[2px] font-bold">AEO<br />Certified</span>
             </div>
           </div>
 
           <div className="col-span-1">
             <h4 className="text-[10px] text-white/50 uppercase tracking-[2px] font-bold mb-4">Stay Up To Date</h4>
             <form className="flex border border-white/20 overflow-hidden h-10 focus-within:border-white/50 transition-colors">
-              <input 
-                type="email" 
-                placeholder="Email Address" 
+              <input
+                type="email"
+                placeholder="Email Address"
                 className="bg-transparent px-4 py-2 w-full text-sm text-white focus:outline-none placeholder:text-white/30"
                 required
               />
-              <button 
+              <button
                 type="submit"
                 className="bg-white text-black text-[10px] font-bold uppercase tracking-[2px] px-6 hover:bg-accent transition-colors"
               >

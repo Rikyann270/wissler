@@ -13,7 +13,7 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [megaMenuOpen, setMegaMenuOpen] = useState<"services" | null>(null)
   const pathname = usePathname()
-  
+
   const isTransparent = transparent && !scrolled && (pathname === "/" || pathname === "/about" || pathname.startsWith("/services/"))
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
         setScrolled(false)
       }
     }
-    
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -44,18 +44,16 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
           )}>
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 z-50 group">
-              <span className="text-xl md:text-2xl font-bold tracking-tight text-white uppercase group-hover:text-accent transition-colors">
-                Wissler<span className="text-accent group-hover:text-white transition-colors">Cargo</span>
-              </span>
+              <img src="assets/LOGO WISSLER-1.svg" alt="Logo" className="w-16 h-16" />
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8 h-full">
               <NavLink href="/" isTransparent={isTransparent}>Home</NavLink>
               <NavLink href="/about" isTransparent={isTransparent}>About Us</NavLink>
-              
+
               {/* Services Dropdown */}
-              <div 
+              <div
                 className="relative flex items-center h-full"
                 onMouseEnter={() => setMegaMenuOpen("services")}
                 onMouseLeave={() => setMegaMenuOpen(null)}
@@ -66,7 +64,7 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
                 )}>
                   Services <ChevronDown className="w-4 h-4" />
                 </button>
-                
+
                 {/* Mega Menu Panel */}
                 <AnimatePresence>
                   {megaMenuOpen === "services" && (
@@ -118,8 +116,8 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
                   <Button variant="primary" size="sm">Quick Quote</Button>
                 </Link>
               </div>
-              
-              <button 
+
+              <button
                 className="lg:hidden text-white hover:text-accent transition-colors"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
@@ -143,7 +141,7 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
             <nav className="flex flex-col gap-8 text-2xl font-bold tracking-tight">
               <Link href="/" onClick={() => setMobileMenuOpen(false)} className="hover:text-accent transition-colors">Home</Link>
               <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="hover:text-accent transition-colors">About Us</Link>
-              
+
               <div className="border-t border-white/10 pt-8 mt-2">
                 <span className="text-xs text-accent uppercase tracking-[3px] block mb-6 font-semibold">Services</span>
                 <div className="flex flex-col gap-6 text-xl pl-4">
@@ -175,10 +173,10 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
 function NavLink({ href, children, isTransparent }: { href: string, children: React.ReactNode, isTransparent: boolean }) {
   const pathname = usePathname()
   const active = pathname === href
-  
+
   return (
-    <Link 
-      href={href} 
+    <Link
+      href={href}
       className={cn(
         "font-semibold text-xs uppercase tracking-[2px] transition-colors relative h-full flex items-center group",
         isTransparent ? "text-white" : "text-white/80 hover:text-white",
