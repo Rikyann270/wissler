@@ -7,8 +7,8 @@
 @theme {
   --color-primary: #0B1120; /* Very dark midnight blue */
   --color-primary-light: #1E293B; /* Slate 800 */
-  --color-accent: #D4AF37; /* Richer, metallic gold */
-  --color-accent-light: #FBE696;
+  --color-accent: #f68132; /* Orange Accent */
+  --color-accent-light: #ffb380; /* Light Orange */
   --color-light: #F8FAFC;
   --color-mid: #94A3B8; /* Slate 400 */
   --color-body: #F8FAFC; /* Light text for dark mode default */
