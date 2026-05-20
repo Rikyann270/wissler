@@ -116,35 +116,35 @@ export default function AboutPage() {
                 Modern solutions engineered for complex global supply chains.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { 
-                  title: "Freight Forwarding", 
+                {
+                  title: "Freight Forwarding",
                   desc: "Seamless multi-modal transport orchestration across air, sea, and land.",
-                  image: "https://images.unsplash.com/photo-1586528116311-ad8ed7c83a56?q=80&w=600" 
+                  image: "https://images.unsplash.com/photo-1586528116311-ad8ed7c83a56?q=80&w=600"
                 },
-                { 
-                  title: "Customs Clearance", 
+                {
+                  title: "Customs Clearance",
                   desc: "Navigating complex international regulations and border compliance with ease.",
                   image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600"
                 },
-                { 
-                  title: "Warehousing", 
+                {
+                  title: "Warehousing",
                   desc: "Strategic inventory management in highly secure, modern facilities globally.",
                   image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=600"
                 },
-                { 
-                  title: "Project Cargo", 
+                {
+                  title: "Project Cargo",
                   desc: "Handling oversized, heavy-lift, and highly critical specialist shipments.",
                   image: "https://images.unsplash.com/photo-1541887089-13fc5b52c163?q=80&w=600"
                 }
               ].map((field, idx) => (
                 <div key={idx} className="bg-white rounded-sm shadow-sm border border-gray-100 hover:border-accent/30 hover:shadow-md transition-all group overflow-hidden flex flex-col">
                   <div className="h-48 w-full overflow-hidden">
-                    <img 
-                      src={field.image} 
-                      alt={field.title} 
+                    <img
+                      src={field.image}
+                      alt={field.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>

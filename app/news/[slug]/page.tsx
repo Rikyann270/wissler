@@ -11,20 +11,20 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
   return (
     <>
       <Navbar transparent={false} />
-      
+
       <main className="flex-1 pt-24 bg-white">
-        
+
         {/* Article Header */}
         <div className="container mx-auto px-4 md:px-8 max-w-3xl py-12">
           <Link href="/news" className="inline-flex items-center text-sm font-semibold text-mid hover:text-accent uppercase tracking-wider mb-8 transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" /> Back to News
           </Link>
-          
+
           <div className="flex items-center gap-4 mb-6">
             <span className="bg-light px-3 py-1 text-accent text-xs font-bold uppercase tracking-[2px] rounded-sm">Company Update</span>
             <span className="text-mid text-sm">May 15, 2026</span>
           </div>
-          
+
           <h1 className="text-[36px] md:text-[48px] font-bold text-primary leading-tight mb-8">
             {slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
           </h1>
@@ -32,7 +32,7 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
 
         {/* Article Hero Image */}
         <div className="w-full h-[400px] md:h-[600px] relative">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c83a56?q=80&w=2070" alt="News article hero" className="w-full h-full object-cover" />
+          <img src="/home/5001367_52476.jpg" alt="News article hero" className="w-full h-full object-cover" />
         </div>
 
         {/* Article Body */}
@@ -61,7 +61,7 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
 
         <ContactBanner />
       </main>
-      
+
       <Footer />
     </>
   )

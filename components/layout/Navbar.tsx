@@ -38,12 +38,16 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
         )}
       >
         <div className="container mx-auto px-4 md:px-8 max-w-[1280px]">
-          <div className={cn(
-            "flex items-center justify-between h-16 md:h-20 px-6 transition-all duration-500 rounded-full",
-            isTransparent ? "bg-transparent border-transparent" : "glass-panel-dark"
-          )}>
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 z-50 group">
+          <div className="relative h-16 md:h-20 rounded-full w-full">
+            {/* Background pill separated to prevent parent backdrop-filter from disabling child dropdown blur */}
+            <div className={cn(
+              "absolute inset-0 rounded-full transition-all duration-500 pointer-events-none",
+              isTransparent ? "bg-transparent border-transparent" : "glass-panel-dark"
+            )}></div>
+
+            <div className="relative z-10 flex items-center justify-between h-full w-full px-6">
+              {/* Logo */}
+              <Link href="/" className="flex items-center gap-2 z-50 group">
               <img src="assets/LOGO WISSLER-1.svg" alt="Logo" className="w-16 h-16" />
             </Link>
 
@@ -124,6 +128,7 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
+          </div>
           </div>
         </div>
       </header>

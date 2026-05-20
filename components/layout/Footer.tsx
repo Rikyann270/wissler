@@ -28,10 +28,17 @@ export function Footer() {
 
         {/* Massive Logo Section */}
         <div className="mb-16 md:mb-24 w-full flex justify-center items-center overflow-hidden">
-          <span className="text-[100px] sm:text-[140px] md:text-[200px] lg:text-[250px] font-bold tracking-tighter leading-none text-white w-full text-center flex flex-col md:flex-row items-center justify-center gap-0 md:gap-8 select-none">
-            <span className="text-accent tracking-tighter leading-none text-[120px] sm:text-[160px] md:text-[220px] lg:text-[280px]">///</span>
-            <span className="lowercase text-[#f68132]">wissler</span>
+
+          <span className="text-[100px] sm:text-[140px] md:text-[210px] lg:text-[210px] font-bold tracking-tighter leading-none w-full text-center flex flex-col md:flex-row items-center justify-center gap-0 md:gap-8 select-none">
+            <span className=" bg-gradient-to-b from-[#f68132] to-black bg-clip-text text-transparent text-accent tracking-tighter leading-none text-[120px] sm:text-[160px] md:text-[220px] lg:text-[280px]">
+            ///
+            </span>
+
+            <span className="lowercase bg-gradient-to-b from-[#f68132] to-black bg-clip-text text-transparent">
+              wissler
+            </span>
           </span>
+
         </div>
 
         {/* Four Columns Section */}

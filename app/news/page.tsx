@@ -9,7 +9,7 @@ const NEWS_ARTICLES = [
     title: "Expansion of Fleet Operations in East Africa",
     excerpt: "Wissler Cargo announces a significant investment in new fleet vehicles to support growing demand across the East African corridor, ensuring unparalleled delivery times.",
     category: "Company Update",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8ed7c83a56?q=80&w=2070",
+    image: "/home/1849.jpg",
     date: "May 15, 2026"
   },
   {
@@ -46,15 +46,15 @@ export default function NewsIndexPage() {
     <>
       {/* We use transparent navbar for the dark hero */}
       <Navbar transparent={true} />
-      
+
       <main className="flex-1 bg-light">
         {/* Dark Hero Section */}
         <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 bg-primary overflow-hidden text-white">
           <div className="absolute inset-0 z-0 opacity-10">
-             <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074" alt="News Background" className="w-full h-full object-cover" />
-             <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074" alt="News Background" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
           </div>
-          
+
           <div className="container relative z-10 mx-auto px-4 md:px-8 max-w-[1280px]">
             <div className="max-w-2xl">
               <div className="flex items-center gap-4 mb-6">
@@ -74,33 +74,33 @@ export default function NewsIndexPage() {
         {/* Content Section */}
         <section className="py-20 md:py-32 -mt-10 relative z-20">
           <div className="container mx-auto px-4 md:px-8 max-w-[1280px]">
-            
+
             {/* Featured Article */}
             <Link href={`/news/${featured.slug}`} className="group block mb-24 bg-white hover:shadow-2xl transition-shadow duration-500 rounded-sm overflow-hidden">
               <div className="flex flex-col lg:flex-row">
-                 <div className="lg:w-3/5 relative overflow-hidden aspect-[16/9] lg:aspect-auto min-h-[400px]">
-                     <img src={featured.image} alt={featured.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                 </div>
-                 <div className="lg:w-2/5 p-10 md:p-16 flex flex-col justify-center bg-primary text-white relative overflow-hidden">
-                     <div className="absolute inset-0 bg-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none"></div>
-                     <span className="text-accent text-xs font-bold uppercase tracking-[3px] mb-6">{featured.category}</span>
-                     <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">{featured.title}</h2>
-                     <p className="text-white/70 mb-12 text-lg leading-relaxed">{featured.excerpt}</p>
-                     
-                     <div className="flex items-center justify-between mt-auto pt-8 border-t border-white/10">
-                        <span className="text-sm font-medium tracking-wider text-white/50">{featured.date}</span>
-                        <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-primary transition-all duration-300">
-                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform -rotate-45"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="10 5 19 5 19 14"></polyline></svg>
-                        </div>
-                     </div>
-                 </div>
+                <div className="lg:w-3/5 relative overflow-hidden aspect-[16/9] lg:aspect-auto min-h-[400px]">
+                  <img src={featured.image} alt={featured.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <div className="lg:w-2/5 p-10 md:p-16 flex flex-col justify-center bg-primary text-white relative overflow-hidden">
+                  <div className="absolute inset-0 bg-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none"></div>
+                  <span className="text-accent text-xs font-bold uppercase tracking-[3px] mb-6">{featured.category}</span>
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">{featured.title}</h2>
+                  <p className="text-white/70 mb-12 text-lg leading-relaxed">{featured.excerpt}</p>
+
+                  <div className="flex items-center justify-between mt-auto pt-8 border-t border-white/10">
+                    <span className="text-sm font-medium tracking-wider text-white/50">{featured.date}</span>
+                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-primary transition-all duration-300">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform -rotate-45"><line x1="5" y1="19" x2="19" y2="5"></line><polyline points="10 5 19 5 19 14"></polyline></svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             </Link>
 
             {/* Latest Updates Grid */}
             <div className="flex items-center justify-between mb-12">
-               <h3 className="text-3xl md:text-4xl font-bold text-primary">Latest Updates</h3>
-               <div className="h-[1px] bg-gray-200 flex-grow ml-8 hidden md:block"></div>
+              <h3 className="text-3xl md:text-4xl font-bold text-primary">Latest Updates</h3>
+              <div className="h-[1px] bg-gray-200 flex-grow ml-8 hidden md:block"></div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -130,7 +130,7 @@ export default function NewsIndexPage() {
 
         <ContactBanner />
       </main>
-      
+
       <Footer />
     </>
   )
