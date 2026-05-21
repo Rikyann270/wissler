@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
-import { HeroVideo } from "@/components/sections/HeroVideo"
+import { HeroVideo } from "@/components/sections/HeroVideoHome"
 import { Ticker } from "@/components/sections/Ticker"
 import { ServiceCard } from "@/components/sections/ServiceCard"
 import { ServiceCarousel } from "@/components/sections/ServiceCarousel"
@@ -31,7 +31,7 @@ export default function Home() {
           headline={<>Logistics. <br />The Right Way.</>}
           buttons={[
             { label: "Our Services", href: "/services/road-transport", variant: "primary" },
-            { label: "About Us", href: "/about", variant: "outline" }
+            { label: "Get a Quote", href: "/about", variant: "outline" }
           ]}
         />
 
@@ -105,7 +105,7 @@ export default function Home() {
           description="Wissler Cargo delivers uncompromising logistics solutions across the globe. From critical air freight to complex road networks, we partner with industry leaders who demand reliability, transparency, and excellence at every step of the supply chain."
           href="/about"
           linkLabel="Learn More"
-          imageSrc="/home/2150167352.jpg"
+          imageSrc="/home/136216.jpg"
           imageAlt="Wissler Cargo Operations"
         />
 
@@ -126,12 +126,12 @@ export default function Home() {
             {
               title: "Customs & Documentation",
               href: "/services/customs",
-              imageSrc: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070"
+              imageSrc: "/home/77668.jpg"
             },
             {
               title: "Special Services",
               href: "/services/special-services",
-              imageSrc: "https://images.unsplash.com/photo-1586528116311-ad8ed7c83a56?q=80&w=2070"
+              imageSrc: "/home/17845.jpg"
             },
           ]}
         />
@@ -160,7 +160,7 @@ export default function Home() {
               <Link href="/news/expansion-east-africa" className="group flex flex-col h-full rounded-2xl overflow-hidden glass-panel-dark border border-white/5 hover:border-white/20 transition-all duration-500">
                 <div className="aspect-video w-full overflow-hidden relative">
                   <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent z-10 transition-colors duration-500"></div>
-                  <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c83a56?q=80&w=2070" alt="News" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                  <img src="/home/91104.jpg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
                 </div>
                 <div className="p-8 lg:p-10 flex flex-col flex-grow bg-gradient-to-b from-transparent to-black/40">
                   <span className="text-accent text-xs font-bold uppercase tracking-[3px] mb-4">Company Update</span>

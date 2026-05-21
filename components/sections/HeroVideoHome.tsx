@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/Button"
 import Link from "next/link"
 import { ChevronDown, BarChart2 } from "lucide-react"
-
+import RotatingText from '@/components/RotatingText'
 
 interface HeroVideoProps {
   videoSrc?: string
@@ -51,10 +51,25 @@ export function HeroVideo({
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(11,17,32,0.6)_100%)] z-10" />
 
       {/* Content */}
-      <div className="container relative z-20 mx-auto px-4 md:px-8 max-w-[1280px] flex flex-col items-center text-center mt-16">
-        <h1 className=" text-[48px] md:text-[80px] lg:text-[110px] font-bold text-white tracking-tighter leading-[0.95] mb-8 drop-shadow-2xl">
-          {headline}
-        </h1>
+      <div className="container text-center relative z-20 mx-auto px-4 md:px-8 max-w-[1280px] flex flex-col items-center text-center mt-16">
+        <h1 className=" text-[48px] md:text-[80px] lg:text-[110px] font-bold text-white tracking-tighter leading-[0.95] mb-8 drop-shadow-2xl" >
+
+          <RotatingText
+            texts={['Tired of', 'Overcharging carriers?', 'Lost Cargo!', 'Unreliable delivery?', 'Complex logistics?']}
+            mainClassName="px-2 sm:px-2 md:px-3 text0-center  text-white overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+            staggerFrom="first"
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.04}
+            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={3000}
+            splitBy="words"
+            auto
+            loop
+          />
+        </h1 >
 
         {subheadline && (
           <p className="text-xl md:text-2xl text-white/80 max-w-2xl font-light tracking-wide mb-12 drop-shadow-md">

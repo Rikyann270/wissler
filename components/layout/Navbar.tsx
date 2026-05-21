@@ -48,87 +48,87 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
             <div className="relative z-10 flex items-center justify-between h-full w-full px-6">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-2 z-50 group">
-              <img src="assets/LOGO WISSLER-1.svg" alt="Logo" className="w-16 h-16" />
-            </Link>
+                <img src="assets/LOGO WISSLER-1.svg" alt="Logo" className="w-16 h-16" />
+              </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8 h-full">
-              <NavLink href="/" isTransparent={isTransparent}>Home</NavLink>
-              <NavLink href="/about" isTransparent={isTransparent}>About Us</NavLink>
+              {/* Desktop Navigation */}
+              <nav className="hidden lg:flex items-center gap-8 h-full">
+                <NavLink href="/" isTransparent={isTransparent}>Home</NavLink>
+                <NavLink href="/about" isTransparent={isTransparent}>About Us</NavLink>
 
-              {/* Services Dropdown */}
-              <div
-                className="relative flex items-center h-full"
-                onMouseEnter={() => setMegaMenuOpen("services")}
-                onMouseLeave={() => setMegaMenuOpen(null)}
-              >
-                <button className={cn(
-                  "flex items-center gap-1 font-semibold text-xs tracking-[2px] uppercase transition-colors",
-                  isTransparent ? "text-white hover:text-accent" : "text-white/80 hover:text-white"
-                )}>
-                  Services <ChevronDown className="w-4 h-4" />
-                </button>
+                {/* Services Dropdown */}
+                <div
+                  className="relative flex items-center h-full"
+                  onMouseEnter={() => setMegaMenuOpen("services")}
+                  onMouseLeave={() => setMegaMenuOpen(null)}
+                >
+                  <button className={cn(
+                    "flex items-center gap-1 font-semibold text-xs tracking-[2px] uppercase transition-colors",
+                    isTransparent ? "text-white hover:text-accent" : "text-white/80 hover:text-white"
+                  )}>
+                    Services <ChevronDown className="w-4 h-4" />
+                  </button>
 
-                {/* Mega Menu Panel */}
-                <AnimatePresence>
-                  {megaMenuOpen === "services" && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 15, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                      className="absolute top-20 left-1/2 -translate-x-1/2 w-[850px] glass-panel-dark rounded-2xl overflow-hidden"
-                    >
-                      <div className="grid grid-cols-3 h-full">
-                        <div className="col-span-1 bg-white/5 p-8 border-r border-white/10 relative overflow-hidden">
-                          <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                          <h3 className="font-bold text-white mb-6 text-lg">Contact Us</h3>
-                          <ul className="space-y-4 text-sm text-white/70">
-                            <li><a href="tel:+440123456789" className="hover:text-accent transition-colors">+44 (0) 123 456 789</a></li>
-                            <li><a href="mailto:info@wisslercargo.com" className="hover:text-accent transition-colors">info@wisslercargo.com</a></li>
-                            <li><a href="mailto:ops@wisslercargo.com" className="hover:text-accent transition-colors">ops@wisslercargo.com</a></li>
-                          </ul>
-                          <div className="mt-12">
-                            <Link href="/careers" className="inline-flex items-center text-accent font-semibold hover:text-white text-xs uppercase tracking-[2px] transition-colors">
-                              Careers &rarr;
-                            </Link>
+                  {/* Mega Menu Panel */}
+                  <AnimatePresence>
+                    {megaMenuOpen === "services" && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="absolute top-20 left-1/2 -translate-x-1/2 w-[850px] glass-panel-dark rounded-2xl overflow-hidden"
+                      >
+                        <div className="grid grid-cols-3 h-full">
+                          <div className="col-span-1 bg-white/5 p-8 border-r border-white/10 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                            <h3 className="font-bold text-white mb-6 text-lg">Contact Us</h3>
+                            <ul className="space-y-4 text-sm text-white/70">
+                              <li><a href="tel:+440123456789" className="hover:text-accent transition-colors">+44 (0) 123 456 789</a></li>
+                              <li><a href="mailto:info@wisslercargo.com" className="hover:text-accent transition-colors">info@wisslercargo.com</a></li>
+                              <li><a href="mailto:ops@wisslercargo.com" className="hover:text-accent transition-colors">ops@wisslercargo.com</a></li>
+                            </ul>
+                            <div className="mt-12">
+                              <Link href="/careers" className="inline-flex items-center text-accent font-semibold hover:text-white text-xs uppercase tracking-[2px] transition-colors">
+                                Request Shipping Guidance &rarr;
+                              </Link>
+                            </div>
+                          </div>
+                          <div className="col-span-2 p-8 grid grid-cols-2 gap-x-8 gap-y-6 bg-black/40">
+                            <MegaMenuItem href="/services/road-transport" icon={<Truck />} title="Road & Land" desc="Reliable Europe-wide transport" />
+                            <MegaMenuItem href="/services/sea-air" icon={<Anchor />} title="Sea & Air" desc="Global freight solutions" />
+                            <MegaMenuItem href="/services/customs" icon={<ShieldCheck />} title="Customs & Docs" desc="Seamless clearance" />
+                            <MegaMenuItem href="/services/special-services" icon={<Zap />} title="Special Services" desc="Out of gauge & ADR" />
                           </div>
                         </div>
-                        <div className="col-span-2 p-8 grid grid-cols-2 gap-x-8 gap-y-6 bg-black/40">
-                          <MegaMenuItem href="/services/road-transport" icon={<Truck />} title="Road & Land" desc="Reliable Europe-wide transport" />
-                          <MegaMenuItem href="/services/sea-air" icon={<Anchor />} title="Sea & Air" desc="Global freight solutions" />
-                          <MegaMenuItem href="/services/customs" icon={<ShieldCheck />} title="Customs & Docs" desc="Seamless clearance" />
-                          <MegaMenuItem href="/services/special-services" icon={<Zap />} title="Special Services" desc="Out of gauge & ADR" />
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <NavLink href="/news" isTransparent={isTransparent}>News</NavLink>
+                <NavLink href="/contact" isTransparent={isTransparent}>Contact</NavLink>
+              </nav>
+
+              {/* CTAs & Mobile Toggle */}
+              <div className="flex items-center gap-4">
+                <div className="hidden md:flex items-center gap-6">
+                  <Link href="#" className={cn("text-xs font-bold uppercase tracking-[2px] transition-colors", isTransparent ? "text-white hover:text-accent" : "text-white/70 hover:text-white")}>
+                    Log In
+                  </Link>
+                  <Link href="/quick-quote" tabIndex={-1}>
+                    <Button variant="primary" size="sm">Quick Quote</Button>
+                  </Link>
+                </div>
+
+                <button
+                  className="lg:hidden text-white hover:text-accent transition-colors"
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                >
+                  {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                </button>
               </div>
-
-              <NavLink href="/news" isTransparent={isTransparent}>News</NavLink>
-              <NavLink href="/contact" isTransparent={isTransparent}>Contact</NavLink>
-            </nav>
-
-            {/* CTAs & Mobile Toggle */}
-            <div className="flex items-center gap-4">
-              <div className="hidden md:flex items-center gap-6">
-                <Link href="#" className={cn("text-xs font-bold uppercase tracking-[2px] transition-colors", isTransparent ? "text-white hover:text-accent" : "text-white/70 hover:text-white")}>
-                  Log In
-                </Link>
-                <Link href="/quick-quote" tabIndex={-1}>
-                  <Button variant="primary" size="sm">Quick Quote</Button>
-                </Link>
-              </div>
-
-              <button
-                className="lg:hidden text-white hover:text-accent transition-colors"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
             </div>
-          </div>
           </div>
         </div>
       </header>

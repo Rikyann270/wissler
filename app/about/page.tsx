@@ -17,7 +17,7 @@ export default function AboutPage() {
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <img
-              src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070"
+              src="/home/118348.jpg"
               alt="Team discussing logistics"
               className="w-full h-full object-cover"
             />
@@ -173,7 +173,7 @@ export default function AboutPage() {
               <div className="group cursor-pointer">
                 <div className="relative overflow-hidden mb-6 aspect-[4/5] rounded-sm">
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974"
+                    src="/home/136225.jpg"
                     alt="Managing Director"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -187,7 +187,7 @@ export default function AboutPage() {
               <div className="group cursor-pointer">
                 <div className="relative overflow-hidden mb-6 aspect-[4/5] rounded-sm">
                   <img
-                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974"
+                    src="/home/2149601460.jpg"
                     alt="Finance Director"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -201,8 +201,7 @@ export default function AboutPage() {
               <div className="group cursor-pointer">
                 <div className="relative overflow-hidden mb-6 aspect-[4/5] rounded-sm">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974"
-                    alt="Operations Director"
+                    src="/home/14049.jpg" alt="Operations Director"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500"></div>

@@ -5,6 +5,7 @@ import { ContactBanner } from "@/components/sections/ContactBanner";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import { Check, ArrowRight, Quote } from "lucide-react";
+import { HeroTracker, ServiceType } from "@/components/sections/HeroTracker";
 
 export interface ServiceCard {
   id: string;
@@ -41,6 +42,17 @@ export const ServiceLayout: React.FC<ServiceLayoutProps> = ({
   testimonial
 }) => {
   const [activeSection, setActiveSection] = useState(services[0]?.id);
+
+  // Map page title to service type for customized tracking UI
+  const getServiceType = (pageTitle: string): ServiceType => {
+    const titleLower = pageTitle.toLowerCase();
+    if (titleLower.includes("road") || titleLower.includes("transport")) return "road";
+    if (titleLower.includes("sea") || titleLower.includes("air") || titleLower.includes("ocean")) return "sea-air";
+    if (titleLower.includes("customs") || titleLower.includes("clearance")) return "customs";
+    return "special";
+  };
+
+  const serviceType = getServiceType(title);
 
   // Simple scroll spy logic
   useEffect(() => {
@@ -99,22 +111,9 @@ export const ServiceLayout: React.FC<ServiceLayoutProps> = ({
                 </Link>
               </div>
               
-              {/* Abstract decorative element for the right side */}
-              <div className="hidden lg:block relative h-[400px]">
-                 <div className="absolute inset-0 bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm p-8 flex flex-col justify-between">
-                    <div className="space-y-4">
-                      {[1, 2, 3, 4].map(i => (
-                        <div key={i} className="flex items-center justify-between border-b border-white/10 pb-4">
-                          <span className="text-white/60 text-sm font-medium">Tracking Point {i}</span>
-                          <span className="text-accent font-mono text-sm">Active</span>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/20">
-                      <div className="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
-                      <span className="text-sm font-bold tracking-widest uppercase">Live Network Status</span>
-                    </div>
-                 </div>
+              {/* Premium Interactive Live Tracking Widget */}
+              <div className="hidden lg:block relative min-h-[420px]">
+                 <HeroTracker serviceType={serviceType} />
               </div>
             </div>
           </div>
