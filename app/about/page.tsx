@@ -213,7 +213,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Our Values Section */}
+        {/* Our Values Section .*/}
         <section className="py-20 md:py-32 bg-light text-primary">
           <div className="container mx-auto px-4 md:px-8 max-w-[1280px]">
             <h2 className="text-4xl md:text-6xl font-bold mb-16 text-primary">Our Values</h2>
