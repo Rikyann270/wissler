@@ -122,22 +122,22 @@ export default function AboutPage() {
                 {
                   title: "Freight Forwarding",
                   desc: "Seamless multi-modal transport orchestration across air, sea, and land.",
-                  image: "https://images.unsplash.com/photo-1586528116311-ad8ed7c83a56?q=80&w=600"
+                  image: "/home/19962385_6206720.jpg"
                 },
                 {
                   title: "Customs Clearance",
                   desc: "Navigating complex international regulations and border compliance with ease.",
-                  image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600"
+                  image: "/home/11667255_20945971.jpg"
                 },
                 {
                   title: "Warehousing",
                   desc: "Strategic inventory management in highly secure, modern facilities globally.",
-                  image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=600"
+                  image: "/home/6869957_29116.jpg"
                 },
                 {
                   title: "Project Cargo",
                   desc: "Handling oversized, heavy-lift, and highly critical specialist shipments.",
-                  image: "https://images.unsplash.com/photo-1541887089-13fc5b52c163?q=80&w=600"
+                  image: "/home/13768251_1906.i201.005.trucks trailers transportation isometric.jpg"
                 }
               ].map((field, idx) => (
                 <div key={idx} className="bg-white rounded-sm shadow-sm border border-gray-100 hover:border-accent/30 hover:shadow-md transition-all group overflow-hidden flex flex-col">
