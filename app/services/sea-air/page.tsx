@@ -84,9 +84,9 @@ export default function SeaAirPage() {
       bannerImage="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=2072"
       testimonial={{
         quote: "Wissler's air charter team pulled off a miracle for us. We had a critical machinery failure in a remote mine, and they managed to source an aircraft and deliver the 15-ton replacement part within 48 hours.",
-        author: "Marcus Vance",
+        author: "Henry Kagaba",
         role: "VP Operations, Global Mining Inc.",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800"
+        image: "/home/2148833055.jpg"
       }}
     />
   );
