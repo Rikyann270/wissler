@@ -55,7 +55,7 @@ export function HeroVideo({
         <h1 className=" text-[48px] md:text-[80px] lg:text-[110px] font-bold text-white tracking-tighter leading-[0.95] mb-8 drop-shadow-2xl" >
 
           <RotatingText
-            texts={['Tired of', 'Overcharging carriers?', 'Lost Cargo!', 'Unreliable delivery?', 'Complex logistics?']}
+            texts={['Overcharging carriers?', 'Lost Cargo!', 'Unreliable delivery?', 'Complex logistics?']}
             mainClassName="px-2 sm:px-2 md:px-3 text0-center  text-white overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
             staggerFrom="first"
             initial={{ y: "100%" }}
