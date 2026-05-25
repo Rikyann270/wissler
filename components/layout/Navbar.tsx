@@ -48,7 +48,7 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
             <div className="relative z-10 flex items-center justify-between h-full w-full px-6">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-2 z-50 group">
-                <img src="assets/LOGO WISSLER-1.svg" alt="Logo" className="w-16 h-16" />
+                <img src="/assets/LOGO WISSLER-1.svg" alt="Logo" className="w-16 h-16" />
               </Link>
 
               {/* Desktop Navigation */}
