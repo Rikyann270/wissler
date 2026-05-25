@@ -84,7 +84,7 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
                             <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                             <h3 className="font-bold text-white mb-6 text-lg">Contact Us</h3>
                             <ul className="space-y-4 text-sm text-white/70">
-                              <li><a href="tel:+440123456789" className="hover:text-accent transition-colors">+44 (0) 123 456 789</a></li>
+                              <li><a href="tel:+256207807559" className="hover:text-accent transition-colors">+256 207 807559</a></li>
                               <li><a href="mailto:info@wisslercargo.com" className="hover:text-accent transition-colors">info@wisslercargo.com</a></li>
                               <li><a href="mailto:ops@wisslercargo.com" className="hover:text-accent transition-colors">ops@wisslercargo.com</a></li>
                             </ul>

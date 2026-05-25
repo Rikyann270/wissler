@@ -57,7 +57,7 @@ export default function ContactPage() {
                         </div>
                         <h4 className="font-semibold text-lg uppercase tracking-widest text-white/90">Global Phone</h4>
                       </div>
-                      <a href="tel:+440123456789" className="text-white/60 hover:text-accent transition-colors ml-14 text-lg">+44 (0) 123 456 789</a>
+                      <a href="tel:+440123456789" className="text-white/60 hover:text-accent transition-colors ml-14 text-lg">+256 207 807559</a>
                     </div>
 
                     <div className="flex flex-col gap-3 group">

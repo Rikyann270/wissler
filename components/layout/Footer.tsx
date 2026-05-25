@@ -53,12 +53,12 @@ export function Footer() {
             <h4 className="text-[10px] text-white/50 uppercase tracking-[2px] font-bold mb-4">Contact Us</h4>
             <div className="text-white/80 text-sm space-y-4">
               <p className="text-white/60">
-                123 Logistics Way<br />
-                London, UK E1 4FZ
+                Lubowa Kampala<br />
+                +256 207 807559
               </p>
               <p>
-                <a href="mailto:hello@wisslercargo.com" className="hover:text-white transition-colors text-white/60">
-                  hello@wisslercargo.com
+                <a href="mailto:info@wisslercargo.com" className="hover:text-white transition-colors text-white/60">
+                  info@wisslercargo
                 </a>
               </p>
             </div>
@@ -112,7 +112,7 @@ export function Footer() {
         {/* Copyright Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-white/40">
           <p>&copy; Wissler. All Rights Reserved {new Date().getFullYear()}</p>
-          <p className="mt-2 sm:mt-0">Site by DEEPMIND</p>
+          <p className="mt-2 sm:mt-0">Site by Orlins</p>
         </div>
 
       </div>
