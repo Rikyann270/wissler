@@ -89,7 +89,7 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
                               <li><a href="mailto:ops@wisslercargo.com" className="hover:text-accent transition-colors">ops@wisslercargo.com</a></li>
                             </ul>
                             <div className="mt-12">
-                              <Link href="/careers" className="inline-flex items-center text-accent font-semibold hover:text-white text-xs uppercase tracking-[2px] transition-colors">
+                              <Link href="/shipping-guidance" className="inline-flex items-center text-accent font-semibold hover:text-white text-xs uppercase tracking-[2px] transition-colors">
                                 Request Shipping Guidance &rarr;
                               </Link>
                             </div>
