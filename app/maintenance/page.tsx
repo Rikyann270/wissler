@@ -44,7 +44,7 @@ export default function MaintenancePage() {
         <div className="space-y-3 text-xs text-white/40">
           <p className="font-semibold uppercase tracking-[2px] text-[#f68132]">Notice for Administrators</p>
           <p className="leading-relaxed">
-            If you are the platform administrator or system owner, please contact <strong>Orlins Ai technologies</strong> for support.
+            If you are the platform administrator or system owner, please contact <strong>Wissler support</strong> for support.
           </p>
         </div>
 
