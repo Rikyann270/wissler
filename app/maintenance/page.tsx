@@ -32,7 +32,7 @@ export default function MaintenancePage() {
 
         <div className="space-y-4">
           <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
-            System Maintenance <br /> by <strong className="text-[#f68132]">Orlins Ai technologies</strong>
+            System Maintenance 
           </h1>
           <p className="text-sm text-white/60 leading-relaxed">
             We are currently performing scheduled backend system upgrades and database optimizations to improve performance.
