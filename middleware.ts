@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server'
 // TOGGLE THIS TO true TO ACTIVATE THE MAINTENANCE / LOCK PAGE.
 // SET TO false TO TURN IT OFF AND RESTORE NORMAL OPERATION.
 // ==========================================
-const IS_MAINTENANCE_MODE = true;
+const IS_MAINTENANCE_MODE = false;
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
