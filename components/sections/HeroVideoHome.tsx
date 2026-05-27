@@ -52,6 +52,22 @@ export function HeroVideo({
 
       {/* Content */}
       <div className="container text-center relative z-20 mx-auto px-4 md:px-8 max-w-[1280px] flex flex-col items-center text-center mt-16">
+
+
+        {subheadline && (
+          <p className="text-xl md:text-2xl text-white/80 max-w-2xl font-light tracking-wide mb-12 drop-shadow-md">
+            {subheadline}
+          </p>
+        )}
+
+        {!subheadline && (
+          <div className="mb-12 text-white flex items-center justify-center">
+            <span className="text-4xl font-bold tracking-tight uppercase opacity-90 drop-shadow-lg">
+              Wissler<span className="text-accent">Cargo</span>
+            </span>
+          </div>
+        )}
+
         <h1 className=" text-[48px] md:text-[80px] lg:text-[110px] font-bold text-white tracking-tighter leading-[0.95] mb-8 drop-shadow-2xl" >
 
           <RotatingText
@@ -71,19 +87,6 @@ export function HeroVideo({
           />
         </h1 >
 
-        {subheadline && (
-          <p className="text-xl md:text-2xl text-white/80 max-w-2xl font-light tracking-wide mb-12 drop-shadow-md">
-            {subheadline}
-          </p>
-        )}
-
-        {!subheadline && (
-          <div className="mb-12 text-white flex items-center justify-center">
-            <span className="text-4xl font-bold tracking-tight uppercase opacity-90 drop-shadow-lg">
-              Wissler<span className="text-accent">Cargo</span>
-            </span>
-          </div>
-        )}
 
         {buttons && buttons.length > 0 && (
           <div className="flex flex-col sm:flex-row gap-6 mt-4">
