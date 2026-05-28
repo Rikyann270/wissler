@@ -84,7 +84,7 @@ export default function RoadTransportPage() {
       bannerImage="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=2075"
       testimonial={{
         quote: "Working with Wissler Cargo has significantly optimized our European supply chain operations. Their proactive communication and reliable FTL schedules have reduced our transit times by over 15%.",
-        author: "Kagimu Helens",
+        author: "Kajimu Helens",
         role: "Supply Chain Director",
         image: "/home/102075.jpg"
       }}

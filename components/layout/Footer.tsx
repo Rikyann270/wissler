@@ -58,7 +58,7 @@ export function Footer() {
               </p>
               <p>
                 <a href="mailto:info@wisslercargo.com" className="hover:text-white transition-colors text-white/60">
-                  info@wisslercargo
+                  info@wisslercargo.com
                 </a>
               </p>
             </div>
@@ -102,8 +102,8 @@ export function Footer() {
           <Link href="/services/special-services" className="hover:text-white transition-colors">Special Services</Link>
           <Link href="/news" className="hover:text-white transition-colors">News</Link>
           <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-          <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-          <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+          {/* <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+          <Link href="/terms" className="hover:text-white transition-colors">Terms</Link> */}
         </div>
 
         {/* Separator 2 */}
