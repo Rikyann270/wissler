@@ -84,9 +84,9 @@ export default function SpecialServicesPage() {
       bannerImage="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=2075"
       testimonial={{
         quote: "Moving a 120-ton gas turbine across three international borders required immense planning. Wissler's Project Cargo team handled the route surveys, police escorts, and crane operations flawlessly.",
-        author: "David Chen",
+        author: "Kagwa David",
         role: "Lead Engineer, Apex Energy",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800"
+        // image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800"
       }}
     />
   );
