@@ -63,8 +63,11 @@ export function HeroVideo({
         {!subheadline && (
           <div className="mb-12 text-white flex items-center justify-center">
             <span className="text-4xl font-bold tracking-tight uppercase opacity-90 drop-shadow-lg">
-              Wissler<span className="text-accent">Cargo</span>
+              Are you tired of
             </span>
+            {/* <span className="text-4xl font-bold tracking-tight uppercase opacity-90 drop-shadow-lg">
+              Wissler<span className="text-accent">Cargo</span>
+            </span> */}
           </div>
         )}
 

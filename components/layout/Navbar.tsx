@@ -113,9 +113,9 @@ export function Navbar({ transparent = true }: { transparent?: boolean }) {
               {/* CTAs & Mobile Toggle */}
               <div className="flex items-center gap-4">
                 <div className="hidden md:flex items-center gap-6">
-                  <Link href="#" className={cn("text-xs font-bold uppercase tracking-[2px] transition-colors", isTransparent ? "text-white hover:text-accent" : "text-white/70 hover:text-white")}>
+                  {/* <Link href="#" className={cn("text-xs font-bold uppercase tracking-[2px] transition-colors", isTransparent ? "text-white hover:text-accent" : "text-white/70 hover:text-white")}>
                     Log In
-                  </Link>
+                  </Link> */}
                   <Link href="/quick-quote" tabIndex={-1}>
                     <Button variant="primary" size="sm">Quick Quote</Button>
                   </Link>

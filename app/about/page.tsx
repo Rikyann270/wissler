@@ -39,9 +39,7 @@ export default function AboutPage() {
                 <Link href="/contact" passHref legacyBehavior>
                   <Button variant="primary">Contact Us</Button>
                 </Link>
-                <Link href="/login" passHref legacyBehavior>
-                  <Button variant="outline">Log In</Button>
-                </Link>
+
               </div>
             </div>
           </div>
@@ -82,7 +80,7 @@ export default function AboutPage() {
         </section>
 
         {/* Impact in Numbers */}
-        <section className="py-20 md:py-24 bg-white text-primary">
+        {/* <section className="py-20 md:py-24 bg-white text-primary">
           <div className="container mx-auto px-4 md:px-8 max-w-[1280px]">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
               <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -103,7 +101,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Capabilities / Fields Section */}
         <section className="py-20 md:py-24 bg-light border-y border-gray-200">
@@ -161,15 +159,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Our People Section */}
-        <section className="py-20 md:py-24 bg-primary text-white border-t border-white/10">
+        {/* <section className="py-20 md:py-24 bg-primary text-white border-t border-white/10">
           <div className="container mx-auto px-4 md:px-8 max-w-[1280px]">
             <div className="flex justify-between items-end mb-16">
               <h2 className="text-4xl md:text-6xl font-bold">Our People</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Person 1 */}
+
               <div className="group cursor-pointer">
                 <div className="relative overflow-hidden mb-6 aspect-[4/5] rounded-sm">
                   <img
@@ -183,7 +180,6 @@ export default function AboutPage() {
                 <p className="text-accent text-sm tracking-wider uppercase">Managing Director</p>
               </div>
 
-              {/* Person 2 */}
               <div className="group cursor-pointer">
                 <div className="relative overflow-hidden mb-6 aspect-[4/5] rounded-sm">
                   <img
@@ -197,7 +193,7 @@ export default function AboutPage() {
                 <p className="text-accent text-sm tracking-wider uppercase">Finance Director</p>
               </div>
 
-              {/* Person 3 */}
+
               <div className="group cursor-pointer">
                 <div className="relative overflow-hidden mb-6 aspect-[4/5] rounded-sm">
                   <img
@@ -211,7 +207,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Our Values Section .*/}
         <section className="py-20 md:py-32 bg-light text-primary">

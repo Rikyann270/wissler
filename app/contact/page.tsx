@@ -72,10 +72,10 @@ export default function ContactPage() {
                           <span className="text-accent/80 text-[10px] font-bold uppercase tracking-widest mb-1">General Inquiries</span>
                           <a href="mailto:info@wisslercargo.com" className="text-white/60 hover:text-white transition-colors">info@wisslercargo.com</a>
                         </div>
-                        <div className="flex flex-col">
+                        {/* <div className="flex flex-col">
                           <span className="text-accent/80 text-[10px] font-bold uppercase tracking-widest mb-1">Operations</span>
                           <a href="mailto:ops@wisslercargo.com" className="text-white/60 hover:text-white transition-colors">ops@wisslercargo.com</a>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
 
@@ -87,9 +87,9 @@ export default function ContactPage() {
                         <h4 className="font-semibold text-lg uppercase tracking-widest text-white/90">Head Office</h4>
                       </div>
                       <p className="text-white/60 leading-relaxed ml-14">
-                        Wissler Cargo Ltd.<br />
-                        Global Trade Way<br />
-                        London, L1 9WC
+                        Lubowa, Kampala<br />
+                        Entebe Airport<br />
+
                       </p>
                     </div>
                   </div>
