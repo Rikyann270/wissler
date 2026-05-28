@@ -102,7 +102,7 @@ export default function Home() {
         <AboutBanner
           label="the"
           tagline="Wissler Cargo"
-          description="Wissler Cargo delivers uncompromising logistics solutions across the globe. From critical air freight to complex road networks, we partner with industry leaders who demand reliability, transparency, and excellence at every step of the supply chain."
+          description="Wissler  delivers uncompromising logistics solutions across the globe. From critical air freight to complex road networks, we partner with industry leaders who demand reliability, transparency, and excellence at every step of the supply chain."
           href="/about"
           linkLabel="Learn More"
           imageSrc="/home/136216.jpg"

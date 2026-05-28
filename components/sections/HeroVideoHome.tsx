@@ -62,20 +62,18 @@ export function HeroVideo({
 
         {!subheadline && (
           <div className="mb-12 text-white flex items-center justify-center">
-            <span className="text-4xl font-bold tracking-tight uppercase opacity-90 drop-shadow-lg">
+            <span className="text-3xl font-bold tracking-tight uppercase opacity-90 drop-shadow-lg">
               Are you tired of
             </span>
-            {/* <span className="text-4xl font-bold tracking-tight uppercase opacity-90 drop-shadow-lg">
-              Wissler<span className="text-accent">Cargo</span>
-            </span> */}
+
           </div>
         )}
 
-        <h1 className=" text-[48px] md:text-[80px] lg:text-[110px] font-bold text-white tracking-tighter leading-[0.95] mb-8 drop-shadow-2xl" >
+        <h1 className="w-full flex justify-center text-center text-[48px] md:text-[80px] lg:text-[110px] font-bold text-white tracking-tighter leading-[0.95] mb-8 drop-shadow-2xl">
 
           <RotatingText
             texts={['Overcharging carriers?', 'Lost Cargo!', 'Unreliable delivery?', 'Complex logistics?']}
-            mainClassName="px-2 sm:px-2 md:px-3 text0-center  text-white overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+            mainClassName=" px-2 sm:px-2 md:px-3 text-center  text-white overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
             staggerFrom="first"
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
@@ -89,6 +87,12 @@ export function HeroVideo({
             loop
           />
         </h1 >
+
+
+        <span className="text-2xl font-bold tracking-tight uppercase opacity-90 drop-shadow-lg">
+          <span>choose  </span><span className="text-accent">Wissler</span>
+        </span>
+
 
 
         {buttons && buttons.length > 0 && (

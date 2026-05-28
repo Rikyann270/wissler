@@ -39,14 +39,14 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
         <div className="container mx-auto px-4 md:px-8 max-w-3xl py-16">
           <div className="prose prose-lg prose-blue max-w-none text-mid">
             <p className="lead text-2xl text-primary font-medium mb-8">
-              Wissler Cargo announces a significant investment in new fleet vehicles to support growing demand across the East African corridor.
+              Wissler announces a significant investment in new fleet vehicles to support growing demand across the East African corridor.
             </p>
             <p className="mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.
+              {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. */}
             </p>
             <h3 className="text-2xl font-bold text-primary mt-12 mb-6">Strategic Expansion</h3>
             <p className="mb-6">
-              Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus.
+              {/* Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. */}
             </p>
             <ul className="list-disc pl-5 mb-6 space-y-2">
               <li>Increase in capacity by 40%</li>
@@ -54,7 +54,7 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
               <li>Enhanced tracking technology</li>
             </ul>
             <p>
-              In hac habitasse platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+              {/* In hac habitasse platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. */}
             </p>
           </div>
         </div>
