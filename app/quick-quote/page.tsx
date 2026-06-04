@@ -60,7 +60,7 @@ export default function QuickQuotePage() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("http://localhost:3000/quick-quote", {
+      const response = await fetch("/quick-quote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -320,7 +320,7 @@ export default function ShippingGuidancePage() {
     setErrorMessage("")
 
     try {
-      const response = await fetch("http://localhost:3000/shipping-guidance", {
+      const response = await fetch("/shipping-guidance", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
