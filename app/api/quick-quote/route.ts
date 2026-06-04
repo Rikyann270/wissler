@@ -96,7 +96,7 @@ export async function POST(request: Request) {
     // Send email
     await transporter.sendMail({
       from: '"Wissler Cargo" <rikyann270@gmail.com>',
-      to: "kixural@gmail.com",
+      to: "info@wisslercargo.com",
       replyTo: email,
       subject: `New Quick Quote Request from ${name} (${service || "Logistics Request"})`,
       html: htmlContent,

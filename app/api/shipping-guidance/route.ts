@@ -19,10 +19,10 @@ export async function POST(request: Request) {
       formType === "general"
         ? "General Shipping Advice"
         : formType === "customs"
-        ? "Customs & Commodity Codes"
-        : formType === "oversized"
-        ? "Oversized & Special Cargo Routing"
-        : "First-time Exporter Support";
+          ? "Customs & Commodity Codes"
+          : formType === "oversized"
+            ? "Oversized & Special Cargo Routing"
+            : "First-time Exporter Support";
 
     // Create email template
     const htmlContent = `
@@ -61,10 +61,10 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    // Send email to kixural@gmail.com
+    // Send email to info@wisslercargo.com
     await transporter.sendMail({
       from: '"Wissler Cargo Advisory" <rikyann270@gmail.com>',
-      to: "kixural@gmail.com",
+      to: "info@wisslercargo.com",
       replyTo: email,
       subject: `Advisory Brief Requested: ${topicLabel} - from ${name}`,
       html: htmlContent,

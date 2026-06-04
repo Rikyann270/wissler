@@ -56,10 +56,10 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    // Send email to kixural@gmail.com
+    // Send email to info@wisslercargo.com
     await transporter.sendMail({
       from: '"Wissler Cargo Contact" <rikyann270@gmail.com>',
-      to: "kixural@gmail.com",
+      to: "info@wisslercargo.com",
       replyTo: email,
       subject: `New Contact Inquiry: ${subject.toUpperCase()} - from ${name}`,
       html: htmlContent,
