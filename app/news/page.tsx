@@ -3,40 +3,7 @@ import { Footer } from "@/components/layout/Footer"
 import { ContactBanner } from "@/components/sections/ContactBanner"
 import Link from "next/link"
 
-const NEWS_ARTICLES = [
-  {
-    slug: "expansion-east-africa",
-    title: "Expansion of Fleet Operations in East Africa",
-    excerpt: "Wissler Cargo announces a significant investment in new fleet vehicles to support growing demand across the East African corridor, ensuring unparalleled delivery times.",
-    category: "Company Update",
-    image: "/home/1849.jpg",
-    date: "May 15, 2026"
-  },
-  {
-    slug: "customs-compliance-2026",
-    title: "Navigating the New 2026 Customs Regulations",
-    excerpt: "A comprehensive guide on the upcoming regulatory changes affecting cross-border trade and how our team ensures full compliance for seamless operations.",
-    category: "Industry Insight",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070",
-    date: "May 02, 2026"
-  },
-  {
-    slug: "sustainability-initiatives",
-    title: "Our Roadmap to Carbon-Neutral Logistics",
-    excerpt: "Detailing our latest initiatives and partnerships aimed at reducing the environmental impact of global supply chains without compromising efficiency.",
-    category: "Sustainability",
-    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070",
-    date: "April 18, 2026"
-  },
-  {
-    slug: "tech-integration",
-    title: "Next-Gen Tracking: AI in Supply Chains",
-    excerpt: "How our new AI-driven tracking infrastructure provides real-time, predictive analytics to foresee delays before they happen.",
-    category: "Technology",
-    image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=2072",
-    date: "April 05, 2026"
-  }
-]
+import { NEWS_ARTICLES } from "@/lib/newsData"
 
 export default function NewsIndexPage() {
   const featured = NEWS_ARTICLES[0];

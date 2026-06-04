@@ -1165,9 +1165,29 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
     };
     options.distortion = distortions[options.distortion];
 
-    const myApp = new App(container, options);
-    appRef.current = myApp;
-    myApp.loadAssets().then(myApp.init);
+    let myApp;
+    try {
+      myApp = new App(container, options);
+      
+      // Check if WebGL context was successfully created
+      const gl = myApp.renderer ? myApp.renderer.getContext() : null;
+      if (!gl) {
+        throw new Error("WebGL context creation failed");
+      }
+      
+      appRef.current = myApp;
+      myApp.loadAssets().then(() => {
+        if (myApp && !myApp.disposed) {
+          myApp.init();
+        }
+      }).catch(err => {
+        console.warn("Hyperspeed assets load or init failed:", err);
+      });
+    } catch (e) {
+      console.warn("Hyperspeed WebGL initialization failed, falling back to static background:", e);
+      // Fallback style: add a beautiful dark blue/black gradient matching the branding
+      container.style.background = "radial-gradient(circle, #081124 0%, #030710 100%)";
+    }
 
     return () => {
       if (appRef.current) {

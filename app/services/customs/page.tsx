@@ -14,7 +14,7 @@ const CUSTOMS_SERVICES: ServiceCard[] = [
       "Binding Tariff Information (BTI)",
       "Port Health & SPS coordination"
     ],
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070",
+    image: "/home/132623.jpg",
     specs: [
       { label: "Processing Time", value: "Often Under 2 Hours" },
       { label: "Systems", value: "CHIEF / CDS Integration" }
@@ -48,7 +48,7 @@ const CUSTOMS_SERVICES: ServiceCard[] = [
       "AEO certification guidance",
       "Post-clearance audits"
     ],
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070",
+    image: "/home/102354.jpg",
     specs: [
       { label: "Service", value: "Retained or Project-Based" },
       { label: "Expertise", value: "Senior ex-Customs Officials" }

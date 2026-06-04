@@ -65,7 +65,7 @@ const SEA_AIR_SERVICES: ServiceCard[] = [
       "24/7 dedicated flight team",
       "Remote location capabilities"
     ],
-    image: "https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=2070",
+    image: "/home/11999.jpg",
     specs: [
       { label: "Aircraft Types", value: "B747F, AN-124, IL-76" },
       { label: "Availability", value: "On-Demand 24/7" }
@@ -84,9 +84,9 @@ export default function SeaAirPage() {
       bannerImage="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=2072"
       testimonial={{
         quote: "Wissler's air charter team pulled off a miracle for us. We had a critical machinery failure in a remote mine, and they managed to source an aircraft and deliver the 15-ton replacement part within 48 hours.",
-        author: "Henry Kagaba",
+        author: "Mwebaze Henry",
         role: "VP Operations, Global Mining Inc.",
-        image: "/home/2148833055.jpg"
+        image: "/home/75564.jpg"
       }}
     />
   );

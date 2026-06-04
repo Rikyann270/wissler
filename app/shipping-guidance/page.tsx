@@ -9,7 +9,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading"
 import {
   Calculator,
   Layers,
-  HelpCircle,
   FileText,
   Check,
   ArrowRight,
@@ -18,8 +17,9 @@ import {
   Scale,
   Ship,
   ChevronRight,
-  Sparkles,
-  Gauge
+  Gauge,
+  AlertCircle,
+  Loader2
 } from "lucide-react"
 
 // Types for Incoterms
@@ -296,6 +296,9 @@ export default function ShippingGuidancePage() {
     company: "",
     details: ""
   })
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState("")
+  const [submittedInfo, setSubmittedInfo] = useState({ name: "", topic: "" })
 
   // Calculation variables
   const volumeCbm = ((length * width * height) / 1000000) * quantity
@@ -311,9 +314,43 @@ export default function ShippingGuidancePage() {
     })
   }
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setFormSubmitted(true)
+    setStatus("loading")
+    setErrorMessage("")
+
+    try {
+      const response = await fetch("http://localhost:3000/shipping-guidance", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          ...formData,
+          formType
+        })
+      })
+
+      const result = await response.json()
+      if (response.ok && result.success) {
+        setStatus("success")
+        setSubmittedInfo({ name: formData.name, topic: formType })
+        setFormSubmitted(true)
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          details: ""
+        })
+      } else {
+        setStatus("error")
+        setErrorMessage(result.error || "Failed to submit request. Please try again.")
+      }
+    } catch (error) {
+      console.error("Advisory form submission error:", error)
+      setStatus("error")
+      setErrorMessage("Network error: Could not connect to the server.")
+    }
   }
 
   return (
@@ -398,7 +435,7 @@ export default function ShippingGuidancePage() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-white">Volumetric Calculator</h3>
-                    <p className="text-xs text-white/60">Identify your shipment's billable chargeable weight</p>
+                    <p className="text-xs text-white/60">Identify your shipment&apos;s billable chargeable weight</p>
                   </div>
                 </div>
 
@@ -1239,15 +1276,25 @@ export default function ShippingGuidancePage() {
                     </div>
                     <h3 className="text-2xl font-bold text-white">Guidance Request Logged</h3>
                     <p className="text-white/70 max-w-sm mx-auto leading-relaxed text-sm">
-                      Thank you, <strong className="text-white">{formData.name}</strong>. Our European operations & customs desk will review your inquiry regarding <strong className="text-accent">{formType === "general" ? "General Advice" : formType === "customs" ? "Customs Compliance" : formType === "oversized" ? "Oversized Routing" : "First-time Import"}</strong> and email a preliminary brief within 2 hours.
+                      Thank you, <strong className="text-white">{submittedInfo.name}</strong>. Our European operations & customs desk will review your inquiry regarding <strong className="text-accent">{submittedInfo.topic === "general" ? "General Advice" : submittedInfo.topic === "customs" ? "Customs Compliance" : submittedInfo.topic === "oversized" ? "Oversized Routing" : "First-time Import"}</strong> and email a preliminary brief within 2 hours.
                     </p>
-                    <Button variant="outline" size="sm" onClick={() => setFormSubmitted(false)}>
+                    <Button variant="outline" size="sm" onClick={() => { setFormSubmitted(false); setStatus("idle"); }}>
                       Submit Another Inquiry
                     </Button>
                   </div>
                 ) : (
                   <form onSubmit={handleFormSubmit} className="space-y-8">
                     <h3 className="text-2xl font-bold text-white mb-2">Request Advisory Brief</h3>
+
+                    {status === "error" && (
+                      <div className="p-4 bg-red-950/50 border-l-4 border-red-500 rounded-r-md flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                        <div>
+                          <h4 className="font-bold text-red-200 text-sm">Submission Error</h4>
+                          <p className="text-red-300 text-xs mt-1">{errorMessage}</p>
+                        </div>
+                      </div>
+                    )}
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="relative group">
@@ -1256,7 +1303,8 @@ export default function ShippingGuidancePage() {
                           id="name"
                           value={formData.name}
                           onChange={handleFormChange}
-                          className="peer w-full h-10 bg-transparent border-b-2 border-white/10 text-white focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent"
+                          disabled={status === "loading"}
+                          className="peer w-full h-10 bg-transparent border-b-2 border-white/10 text-white focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent disabled:opacity-50"
                           placeholder="Your Name *"
                           required
                         />
@@ -1269,7 +1317,8 @@ export default function ShippingGuidancePage() {
                           id="email"
                           value={formData.email}
                           onChange={handleFormChange}
-                          className="peer w-full h-10 bg-transparent border-b-2 border-white/10 text-white focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent"
+                          disabled={status === "loading"}
+                          className="peer w-full h-10 bg-transparent border-b-2 border-white/10 text-white focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent disabled:opacity-50"
                           placeholder="Email Address *"
                           required
                         />
@@ -1284,7 +1333,8 @@ export default function ShippingGuidancePage() {
                           id="company"
                           value={formData.company}
                           onChange={handleFormChange}
-                          className="peer w-full h-10 bg-transparent border-b-2 border-white/10 text-white focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent"
+                          disabled={status === "loading"}
+                          className="peer w-full h-10 bg-transparent border-b-2 border-white/10 text-white focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent disabled:opacity-50"
                           placeholder="Company Name"
                         />
                         <label htmlFor="company" className="absolute left-0 -top-3 text-[10px] font-bold text-white/50 uppercase tracking-widest peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:font-medium peer-focus:-top-3 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accent transition-all cursor-text">Company Name</label>
@@ -1296,7 +1346,8 @@ export default function ShippingGuidancePage() {
                           id="formType"
                           value={formType}
                           onChange={(e) => setFormType(e.target.value)}
-                          className="w-full h-10 bg-transparent border-b-2 border-white/10 text-white focus:border-accent focus:outline-none cursor-pointer rounded-none"
+                          disabled={status === "loading"}
+                          className="w-full h-10 bg-transparent border-b-2 border-white/10 text-white focus:border-accent focus:outline-none cursor-pointer rounded-none disabled:opacity-50"
                           required
                         >
                           <option value="general" className="bg-primary text-white">General Shipping Advice</option>
@@ -1314,17 +1365,33 @@ export default function ShippingGuidancePage() {
                         rows={3}
                         value={formData.details}
                         onChange={handleFormChange}
-                        className="w-full bg-transparent border-b-2 border-white/10 text-white focus:border-accent focus:outline-none transition-colors resize-none py-2"
+                        disabled={status === "loading"}
+                        className="w-full bg-transparent border-b-2 border-white/10 text-white focus:border-accent focus:outline-none transition-colors resize-none py-2 disabled:opacity-50"
                         placeholder="Please supply weights, sizes, locations, or standard concerns..."
                         required
                       ></textarea>
                     </div>
 
                     <div className="pt-4 flex justify-end">
-                      <Button type="submit" variant="primary" size="lg" className="w-full md:w-auto px-12 group">
+                      <Button
+                        type="submit"
+                        variant="primary"
+                        disabled={status === "loading"}
+                        size="lg"
+                        className="w-full md:w-auto px-12 group"
+                      >
                         <span className="flex items-center gap-2">
-                          Submit to Advisory Desk
-                          <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                          {status === "loading" ? (
+                            <>
+                              Sending Request...
+                              <Loader2 className="w-4 h-4 animate-spin" />
+                            </>
+                          ) : (
+                            <>
+                              Submit to Advisory Desk
+                              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                            </>
+                          )}
                         </span>
                       </Button>
                     </div>

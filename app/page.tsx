@@ -8,10 +8,10 @@ import { AboutBanner } from "@/components/sections/AboutBanner"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { Button } from "@/components/ui/Button"
 import Hyperspeed from "@/components/Hyperspeed";
-
-
 import Link from "next/link"
 import SplitText from "@/components/SplitText";
+import { NEWS_ARTICLES } from "@/lib/newsData";
+
 
 
 const INDUSTRY_TICKER = [
@@ -105,7 +105,7 @@ export default function Home() {
           description="Wissler  delivers uncompromising logistics solutions across the globe. From critical air freight to complex road networks, we partner with industry leaders who demand reliability, transparency, and excellence at every step of the supply chain."
           href="/about"
           linkLabel="Learn More"
-          imageSrc="/home/136216.jpg"
+          imageSrc="/home/71414.jpg"
           imageAlt="Wissler Cargo Operations"
         />
 
@@ -156,36 +156,22 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-              {/* Mock News Cards - Agency style */}
-              <Link href="/news/expansion-east-africa" className="group flex flex-col h-full rounded-2xl overflow-hidden glass-panel-dark border border-white/5 hover:border-white/20 transition-all duration-500">
-                <div className="aspect-video w-full overflow-hidden relative">
-                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent z-10 transition-colors duration-500"></div>
-                  <img src="/home/91104.jpg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
-                </div>
-                <div className="p-8 lg:p-10 flex flex-col flex-grow bg-gradient-to-b from-transparent to-black/40">
-                  <span className="text-accent text-xs font-bold uppercase tracking-[3px] mb-4">Company Update</span>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6 group-hover:text-accent transition-colors leading-snug">Expansion of Fleet Operations in East Africa</h3>
-                  <p className="text-white/60 mb-8 flex-grow text-lg font-light">Wissler Cargo announces a significant investment in new fleet vehicles to support growing demand across the East African corridor...</p>
-                  <span className="text-white font-bold text-xs uppercase tracking-[2px] group-hover:text-accent transition-colors flex items-center gap-2">
-                    Read Article <div className="w-6 h-[1px] bg-current"></div>
-                  </span>
-                </div>
-              </Link>
-
-              <Link href="/news/customs-compliance-2026" className="group flex flex-col h-full rounded-2xl overflow-hidden glass-panel-dark border border-white/5 hover:border-white/20 transition-all duration-500">
-                <div className="aspect-video w-full overflow-hidden relative">
-                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent z-10 transition-colors duration-500"></div>
-                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070" alt="News" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
-                </div>
-                <div className="p-8 lg:p-10 flex flex-col flex-grow bg-gradient-to-b from-transparent to-black/40">
-                  <span className="text-accent text-xs font-bold uppercase tracking-[3px] mb-4">Industry Insight</span>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6 group-hover:text-accent transition-colors leading-snug">Navigating the New 2026 Customs Regulations</h3>
-                  <p className="text-white/60 mb-8 flex-grow text-lg font-light">A comprehensive guide on the upcoming regulatory changes affecting cross-border trade and how our team ensures full compliance...</p>
-                  <span className="text-white font-bold text-xs uppercase tracking-[2px] group-hover:text-accent transition-colors flex items-center gap-2">
-                    Read Article <div className="w-6 h-[1px] bg-current"></div>
-                  </span>
-                </div>
-              </Link>
+              {NEWS_ARTICLES.map((article) => (
+                <Link key={article.slug} href={`/news/${article.slug}`} className="group flex flex-col h-full rounded-2xl overflow-hidden glass-panel-dark border border-white/5 hover:border-white/20 transition-all duration-500">
+                  <div className="aspect-video w-full overflow-hidden relative">
+                    <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent z-10 transition-colors duration-500"></div>
+                    <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                  </div>
+                  <div className="p-8 lg:p-10 flex flex-col flex-grow bg-gradient-to-b from-transparent to-black/40">
+                    <span className="text-accent text-xs font-bold uppercase tracking-[3px] mb-4">{article.category}</span>
+                    <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6 group-hover:text-accent transition-colors leading-snug">{article.title}</h3>
+                    <p className="text-white/60 mb-8 flex-grow text-lg font-light">{article.excerpt}</p>
+                    <span className="text-white font-bold text-xs uppercase tracking-[2px] group-hover:text-accent transition-colors flex items-center gap-2">
+                      Read Article <div className="w-6 h-[1px] bg-current"></div>
+                    </span>
+                  </div>
+                </Link>
+              ))}
             </div>
 
             <div className="mt-12 text-center md:hidden">

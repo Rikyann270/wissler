@@ -1,12 +1,76 @@
-import { Navbar } from "@/components/layout/Navbar"
-import { Footer } from "@/components/layout/Footer"
-import { Button } from "@/components/ui/Button"
-import { MapPin, Phone, Mail, Globe } from "lucide-react"
+"use client";
+
+import { useState } from "react";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { Button } from "@/components/ui/Button";
+import { MapPin, Phone, Mail, Globe, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: ""
+  });
+
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.subject) {
+      setStatus("error");
+      setErrorMessage("Please select a subject.");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("http://localhost:3000/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      if (response.ok && result.success) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: ""
+        });
+      } else {
+        setStatus("error");
+        setErrorMessage(result.error || "Failed to send message. Please try again.");
+      }
+    } catch (error: any) {
+      console.error("Submission error:", error);
+      setStatus("error");
+      setErrorMessage("Network error: Could not connect to the server.");
+    }
+  };
+
   return (
     <>
-      {/* We use transparent navbar for the dark hero */}
       <Navbar transparent={true} />
 
       <main className="flex-1 bg-light">
@@ -57,7 +121,7 @@ export default function ContactPage() {
                         </div>
                         <h4 className="font-semibold text-lg uppercase tracking-widest text-white/90">Global Phone</h4>
                       </div>
-                      <a href="tel:+440123456789" className="text-white/60 hover:text-accent transition-colors ml-14 text-lg">+256 207 807559</a>
+                      <a href="tel:+256207807559" className="text-white/60 hover:text-accent transition-colors ml-14 text-lg">+256 207 807559</a>
                     </div>
 
                     <div className="flex flex-col gap-3 group">
@@ -72,10 +136,6 @@ export default function ContactPage() {
                           <span className="text-accent/80 text-[10px] font-bold uppercase tracking-widest mb-1">General Inquiries</span>
                           <a href="mailto:info@wisslercargo.com" className="text-white/60 hover:text-white transition-colors">info@wisslercargo.com</a>
                         </div>
-                        {/* <div className="flex flex-col">
-                          <span className="text-accent/80 text-[10px] font-bold uppercase tracking-widest mb-1">Operations</span>
-                          <a href="mailto:ops@wisslercargo.com" className="text-white/60 hover:text-white transition-colors">ops@wisslercargo.com</a>
-                        </div> */}
                       </div>
                     </div>
 
@@ -88,8 +148,7 @@ export default function ContactPage() {
                       </div>
                       <p className="text-white/60 leading-relaxed ml-14">
                         Lubowa, Kampala<br />
-                        Entebe Airport<br />
-
+                        Entebbe Airport<br />
                       </p>
                     </div>
                   </div>
@@ -103,62 +162,154 @@ export default function ContactPage() {
 
               {/* Contact Form (Light Side) */}
               <div className="lg:col-span-7 bg-white p-10 md:p-16 flex flex-col justify-center">
-                <h3 className="text-3xl font-bold text-primary mb-2">Send us a message</h3>
-                <p className="text-mid mb-12 text-sm">Fill out the form below and a representative will be in touch shortly.</p>
-
-                <form className="space-y-10">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div className="relative group">
-                      <input type="text" id="name" className="peer w-full h-10 bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent" placeholder="Full Name *" required />
-                      <label htmlFor="name" className="absolute left-0 -top-3 text-[10px] font-bold text-mid uppercase tracking-widest peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:font-medium peer-focus:-top-3 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accent transition-all cursor-text">Full Name *</label>
+                {status === "success" ? (
+                  <div className="text-center py-16 space-y-6">
+                    <div className="inline-flex items-center justify-center w-20 h-20 bg-green-50 rounded-full text-green-500 mb-4 animate-bounce">
+                      <CheckCircle2 className="w-10 h-10" />
                     </div>
-                    <div className="relative group">
-                      <input type="text" id="company" className="peer w-full h-10 bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent" placeholder="Company Name" />
-                      <label htmlFor="company" className="absolute left-0 -top-3 text-[10px] font-bold text-mid uppercase tracking-widest peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:font-medium peer-focus:-top-3 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accent transition-all cursor-text">Company Name</label>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div className="relative group">
-                      <input type="email" id="email" className="peer w-full h-10 bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent" placeholder="Email Address *" required />
-                      <label htmlFor="email" className="absolute left-0 -top-3 text-[10px] font-bold text-mid uppercase tracking-widest peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:font-medium peer-focus:-top-3 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accent transition-all cursor-text">Email Address *</label>
-                    </div>
-                    <div className="relative group">
-                      <input type="tel" id="phone" className="peer w-full h-10 bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent" placeholder="Phone Number *" required />
-                      <label htmlFor="phone" className="absolute left-0 -top-3 text-[10px] font-bold text-mid uppercase tracking-widest peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:font-medium peer-focus:-top-3 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accent transition-all cursor-text">Phone Number *</label>
+                    <h2 className="text-3xl font-bold text-primary">Message Sent Successfully!</h2>
+                    <p className="text-mid max-w-md mx-auto leading-relaxed">
+                      Thank you for contacting us. Your message has been received, and our support team will get back to you shortly.
+                    </p>
+                    <div className="pt-6">
+                      <Button type="button" variant="primary" size="lg" onClick={() => setStatus("idle")}>
+                        Send Another Message
+                      </Button>
                     </div>
                   </div>
+                ) : (
+                  <>
+                    <h3 className="text-3xl font-bold text-primary mb-2">Send us a message</h3>
+                    <p className="text-mid mb-12 text-sm">Fill out the form below and a representative will be in touch shortly.</p>
 
-                  <div className="relative group pt-2">
-                    <label htmlFor="subject" className="block text-[10px] font-bold text-mid uppercase tracking-widest mb-1">Subject *</label>
-                    <div className="relative">
-                      <select id="subject" className="w-full h-10 bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors appearance-none cursor-pointer rounded-none" required defaultValue="">
-                        <option value="" disabled>Select an inquiry type...</option>
-                        <option value="general">General Enquiry</option>
-                        <option value="quote">Request a Quote</option>
-                        <option value="support">Operations Support</option>
-                        <option value="guidance">Shipping Guidance</option>
-                      </select>
-                      <div className="absolute right-0 top-3 pointer-events-none text-mid">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    <form onSubmit={handleSubmit} className="space-y-10">
+                      {status === "error" && (
+                        <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded-r-md flex items-start gap-3">
+                          <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                          <div>
+                            <h4 className="font-bold text-red-800 text-sm">Submission Error</h4>
+                            <p className="text-red-700 text-xs mt-1">{errorMessage}</p>
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div className="relative group">
+                          <input
+                            type="text"
+                            id="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="peer w-full h-10 bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent"
+                            placeholder="Full Name *"
+                            required
+                          />
+                          <label htmlFor="name" className="absolute left-0 -top-3 text-[10px] font-bold text-mid uppercase tracking-widest peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:font-medium peer-focus:-top-3 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accent transition-all cursor-text">Full Name *</label>
+                        </div>
+                        <div className="relative group">
+                          <input
+                            type="text"
+                            id="company"
+                            value={formData.company}
+                            onChange={handleChange}
+                            className="peer w-full h-10 bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent"
+                            placeholder="Company Name"
+                          />
+                          <label htmlFor="company" className="absolute left-0 -top-3 text-[10px] font-bold text-mid uppercase tracking-widest peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:font-medium peer-focus:-top-3 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accent transition-all cursor-text">Company Name</label>
+                        </div>
                       </div>
-                    </div>
-                  </div>
 
-                  <div className="relative group pt-2">
-                    <label htmlFor="message" className="block text-[10px] font-bold text-mid uppercase tracking-widest mb-1">Message *</label>
-                    <textarea id="message" rows={3} className="w-full bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors resize-none py-2" placeholder="Tell us how we can help..." required></textarea>
-                  </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div className="relative group">
+                          <input
+                            type="email"
+                            id="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="peer w-full h-10 bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent"
+                            placeholder="Email Address *"
+                            required
+                          />
+                          <label htmlFor="email" className="absolute left-0 -top-3 text-[10px] font-bold text-mid uppercase tracking-widest peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:font-medium peer-focus:-top-3 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accent transition-all cursor-text">Email Address *</label>
+                        </div>
+                        <div className="relative group">
+                          <input
+                            type="tel"
+                            id="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="peer w-full h-10 bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors pt-2 placeholder-transparent"
+                            placeholder="Phone Number *"
+                            required
+                          />
+                          <label htmlFor="phone" className="absolute left-0 -top-3 text-[10px] font-bold text-mid uppercase tracking-widest peer-placeholder-shown:text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:font-medium peer-focus:-top-3 peer-focus:text-[10px] peer-focus:font-bold peer-focus:text-accent transition-all cursor-text">Phone Number *</label>
+                        </div>
+                      </div>
 
-                  <div className="pt-6 flex justify-end">
-                    <Button type="button" variant="primary" size="lg" className="w-full md:w-auto px-12 group">
-                      <span className="flex items-center gap-2">
-                        Send Message
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform transition-transform group-hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                      </span>
-                    </Button>
-                  </div>
-                </form>
+                      <div className="relative group pt-2">
+                        <label htmlFor="subject" className="block text-[10px] font-bold text-mid uppercase tracking-widest mb-1">Subject *</label>
+                        <div className="relative">
+                          <select
+                            id="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            className="w-full h-10 bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors appearance-none cursor-pointer rounded-none"
+                            required
+                          >
+                            <option value="" disabled>Select an inquiry type...</option>
+                            <option value="general">General Enquiry</option>
+                            <option value="quote">Request a Quote</option>
+                            <option value="support">Operations Support</option>
+                            <option value="guidance">Shipping Guidance</option>
+                          </select>
+                          <div className="absolute right-0 top-3 pointer-events-none text-mid">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="relative group pt-2">
+                        <label htmlFor="message" className="block text-[10px] font-bold text-mid uppercase tracking-widest mb-1">Message *</label>
+                        <textarea
+                          id="message"
+                          rows={3}
+                          value={formData.message}
+                          onChange={handleChange}
+                          className="w-full bg-transparent border-b-2 border-gray-100 text-primary focus:border-accent focus:outline-none transition-colors resize-none py-2"
+                          placeholder="Tell us how we can help..."
+                          required
+                        ></textarea>
+                      </div>
+
+                      <div className="pt-6 flex justify-end">
+                        <Button
+                          type="submit"
+                          variant="primary"
+                          disabled={status === "loading"}
+                          size="lg"
+                          className="w-full md:w-auto px-12 group"
+                        >
+                          <span className="flex items-center gap-2">
+                            {status === "loading" ? (
+                              <>
+                                Sending...
+                                <Loader2 className="w-4 h-4 animate-spin" />
+                              </>
+                            ) : (
+                              <>
+                                Send Message
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform transition-transform group-hover:translate-x-1">
+                                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                                  <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                              </>
+                            )}
+                          </span>
+                        </Button>
+                      </div>
+                    </form>
+                  </>
+                )}
               </div>
 
             </div>
@@ -169,5 +320,5 @@ export default function ContactPage() {
 
       <Footer />
     </>
-  )
+  );
 }

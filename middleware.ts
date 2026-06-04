@@ -10,6 +10,21 @@ const IS_MAINTENANCE_MODE = false;
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  // Rewrite POST requests from /quick-quote to /api/quick-quote to prevent Page/Route conflict
+  if (pathname === '/quick-quote' && request.method === 'POST') {
+    return NextResponse.rewrite(new URL('/api/quick-quote', request.url))
+  }
+
+  // Rewrite POST requests from /contact to /api/contact to prevent Page/Route conflict
+  if (pathname === '/contact' && request.method === 'POST') {
+    return NextResponse.rewrite(new URL('/api/contact', request.url))
+  }
+
+  // Rewrite POST requests from /shipping-guidance to /api/shipping-guidance to prevent Page/Route conflict
+  if (pathname === '/shipping-guidance' && request.method === 'POST') {
+    return NextResponse.rewrite(new URL('/api/shipping-guidance', request.url))
+  }
+
   // 1. Allow the request to pass through if maintenance mode is disabled
   if (!IS_MAINTENANCE_MODE) {
     return NextResponse.next()
