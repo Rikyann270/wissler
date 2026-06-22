@@ -2,8 +2,14 @@ import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { ContactBanner } from "@/components/sections/ContactBanner"
 import Link from "next/link"
+import type { Metadata } from "next"
 
 import { NEWS_ARTICLES } from "@/lib/newsData"
+
+export const metadata: Metadata = {
+  title: "Uganda Logistics News & Insights",
+  description: "Stay updated on East African shipping regulations, URA customs operating changes, tax policies, and global supply chain updates.",
+};
 
 export default function NewsIndexPage() {
   const featured = NEWS_ARTICLES[0];

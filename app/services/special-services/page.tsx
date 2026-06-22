@@ -1,6 +1,10 @@
-"use client";
-
 import { ServiceLayout, ServiceCard } from "@/components/layout/ServiceLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Project Cargo & Dangerous Goods Transport Uganda",
+  description: "Specialized logistics for out-of-gauge project cargo, exhibition shipping, and dangerous goods (ADR) transport across East Africa.",
+};
 
 const SPECIAL_SERVICES: ServiceCard[] = [
   {

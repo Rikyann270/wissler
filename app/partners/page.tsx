@@ -1,6 +1,12 @@
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { SectionHeading } from "@/components/ui/SectionHeading"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Partner Opportunities | Wissler Cargo East Africa",
+  description: "Partner with Wissler Cargo. We work with international agents and freight carriers to expand global supply chain networks.",
+};
 
 export default function PartnersPage() {
   return (

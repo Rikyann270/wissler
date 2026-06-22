@@ -11,6 +11,26 @@ export interface NewsArticle {
 
 export const NEWS_ARTICLES: NewsArticle[] = [
   {
+    slug: "uganda-logistics-trade-update-2026",
+    title: "Uganda Logistics & Trade Update - June 2026",
+    excerpt: "An overview of Uganda's new 2026/27 tax measures, extended customs operating hours, strong agricultural export opportunities, and Uganda Airlines' fleet expansion.",
+    category: "Regional Update",
+    image: "/home/Top_Transport_and_Logistics_Companies_in_Uganda.jpg",
+    date: "June 22, 2026",
+    content: [
+      "Uganda's 2026/27 financial year has introduced several developments that will affect importers, exporters, and logistics operators. New tax measures, including higher environmental levies on selected imports such as second-hand clothing and adjustments to fuel-related taxes, are expected to increase import and transportation costs across the supply chain.",
+      "On a positive note, the Uganda Revenue Authority (URA) has extended customs operating hours to improve cargo clearance efficiency and reduce delays at border points and customs stations. Continued investment in digital customs processes is also helping streamline trade procedures and improve transparency.",
+      "Export opportunities remain strong, particularly in agriculture, coffee, dairy products, processed foods, and value-added manufacturing. Businesses are encouraged to maintain compliance with customs and documentation requirements to ensure smooth cross-border trade.",
+      "Additionally, Uganda Airlines' planned fleet expansion, including cargo aircraft, is expected to strengthen regional cargo capacity and support the growth of local export industries."
+    ],
+    highlights: [
+      "New 2026/27 tax measures and environmental levies on imports",
+      "Extended URA customs operating hours for improved cargo clearance",
+      "Strong export opportunities in agriculture, dairy, and manufacturing",
+      "Uganda Airlines fleet expansion to strengthen cargo capacity"
+    ]
+  },
+  {
     slug: "expansion-east-africa",
     title: "Wissler Cargo Enhances Cross-Border Transit Times in East Africa",
     excerpt: "We have optimized key transit routes and established new support hubs across Kenya, Uganda, and Rwanda to provide smoother customs handling and reduced transit times.",

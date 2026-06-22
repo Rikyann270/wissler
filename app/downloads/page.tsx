@@ -1,6 +1,12 @@
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { SectionHeading } from "@/components/ui/SectionHeading"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Logistics Documents & Downloads | Wissler Cargo",
+  description: "Download essential customs forms, shipping documents, terms and conditions, and regional trade guidelines for Wissler Cargo.",
+};
 
 export default function DownloadsPage() {
   return (

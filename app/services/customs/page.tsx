@@ -1,6 +1,10 @@
-"use client";
-
 import { ServiceLayout, ServiceCard } from "@/components/layout/ServiceLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "URA Customs Clearing & AEO Agents Uganda",
+  description: "Expert URA customs clearance in Kampala, Malaba & Entebbe. Specialized Authorized Economic Operator (AEO) status for priority customs processing.",
+};
 
 const CUSTOMS_SERVICES: ServiceCard[] = [
   {

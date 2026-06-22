@@ -5,6 +5,50 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { NEWS_ARTICLES } from "@/lib/newsData"
 import { notFound } from "next/navigation"
+import type { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+  const article = NEWS_ARTICLES.find((a) => a.slug === slug);
+
+  if (!article) {
+    return {
+      title: "Article Not Found",
+    };
+  }
+
+  let publishedTime: string | undefined = undefined;
+  try {
+    const d = new Date(article.date);
+    if (!isNaN(d.getTime())) {
+      publishedTime = d.toISOString();
+    }
+  } catch (e) {}
+
+  return {
+    title: article.title,
+    description: article.excerpt,
+    openGraph: {
+      type: "article",
+      title: article.title,
+      description: article.excerpt,
+      publishedTime,
+      images: [
+        {
+          url: article.image,
+          alt: article.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.excerpt,
+      images: [article.image],
+    },
+  };
+}
 
 export default async function NewsArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;

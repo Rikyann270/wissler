@@ -1,6 +1,10 @@
-"use client";
-
 import { ServiceLayout, ServiceCard } from "@/components/layout/ServiceLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sea & Air Freight Forwarding Kampala",
+  description: "Global air cargo via Entebbe Airport & ocean container freight solutions. Direct networks, tracking, and efficient shipping for East African businesses.",
+};
 
 const SEA_AIR_SERVICES: ServiceCard[] = [
   {

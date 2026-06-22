@@ -1,6 +1,10 @@
-"use client";
-
 import { ServiceLayout, ServiceCard } from "@/components/layout/ServiceLayout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Road Freight & Cross-Border Transport Uganda",
+  description: "Reliable overland logistics linking Mombasa & Dar es Salaam port to Kampala, Rwanda, DRC & South Sudan. Groupage, full load & real-time tracking.",
+};
 
 const ROAD_SERVICES: ServiceCard[] = [
   {

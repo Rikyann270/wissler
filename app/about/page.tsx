@@ -5,6 +5,12 @@ import { ContactBanner } from "@/components/sections/ContactBanner"
 import { Button } from "@/components/ui/Button"
 import Link from "next/link"
 import CurvedLoop from '@/components/CurvedLoop';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | Wissler Cargo Uganda",
+  description: "Learn about Wissler Cargo's mission, values, and expert team delivering world-class logistics and customs clearing solutions across East Africa.",
+};
 
 export default function AboutPage() {
   return (

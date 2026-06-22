@@ -11,6 +11,12 @@ import Hyperspeed from "@/components/Hyperspeed";
 import Link from "next/link"
 import SplitText from "@/components/SplitText";
 import { NEWS_ARTICLES } from "@/lib/newsData";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Wissler Cargo | Logistics, Freight Forwarding & Customs Uganda",
+  description: "Wissler Cargo is Uganda's premier logistics partner. Offering cross-border road transport, sea/air freight forwarding, and URA customs clearance. Request a quote.",
+};
 
 
 
@@ -156,7 +162,7 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-              {NEWS_ARTICLES.map((article) => (
+              {NEWS_ARTICLES.slice(0, 2).map((article) => (
                 <Link key={article.slug} href={`/news/${article.slug}`} className="group flex flex-col h-full rounded-2xl overflow-hidden glass-panel-dark border border-white/5 hover:border-white/20 transition-all duration-500">
                   <div className="aspect-video w-full overflow-hidden relative">
                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent z-10 transition-colors duration-500"></div>
